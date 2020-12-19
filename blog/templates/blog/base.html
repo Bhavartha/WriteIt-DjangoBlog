@@ -10,14 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
         crossorigin="anonymous" />
-    {% block css %}
-    {% endblock css %}
-
-    {% if title %}
-    <title>Blog - {{title}}</title>
-    {% else %}
-    <title>Blog</title>
-    {% endif %}
+        
+        {% if title %}
+        <title>Blog - {{title}}</title>
+        {% else %}
+        <title>Blog</title>
+        {% endif %}
 </head>
 
 <body>
@@ -26,32 +24,32 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="{% url 'blog-home' %}">
                 <img
-                    src="https://user-images.githubusercontent.com/33615252/102496947-136f3e00-409e-11eb-999e-20012def9129.png">
+                src="https://user-images.githubusercontent.com/33615252/102496947-136f3e00-409e-11eb-999e-20012def9129.png">
             </a>
-
+            
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="{% url 'blog-home' %}">
+            data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="{% url 'blog-home' %}">
                     Home
                 </a>
-
+                
                 <a class="navbar-item" href="{% url 'blog-about' %}">
                     About
                 </a>
-
+                
                 <!-- <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
                         More
                     </a>
-
+                    
                     <div class="navbar-dropdown">
                         <a class="navbar-item">
                             About
@@ -68,16 +66,16 @@
                         </a>
                     </div>
                 </div> -->
-
+                
             </div>
-
+            
             <div class="navbar-end pr-6">
                 <div class="navbar-item">
                     <div class="buttons">
                         <a class="button is-primary" href="{% url 'register' %}">
                             <strong>Sign up</strong>
                         </a>
-                        <a class="button is-warning">
+                        <a class="button is-warning" href="{% url 'login' %}">
                             Log in
                         </a>
                     </div>
@@ -86,7 +84,7 @@
         </div>
     </nav>
     <!-- Navbar end -->
-
+    
     <!-- Flash messages -->
     {% if messages %}
     {% for msg in messages %}
@@ -96,25 +94,25 @@
     </div>
     {% endfor %}
     {% endif %}
-
+    
     <!-- Content -->
     {% block content %}
     {% endblock content %}
 
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
             // Get all "navbar-burger" elements
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
+            
             // Check if there are any navbar burgers
             if ($navbarBurgers.length > 0) {
-
+                
                 // Add a click event on each of them
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
-
+                        
                         // Get the target from the "data-target" attribute
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
@@ -122,21 +120,23 @@
                         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
                         el.classList.toggle('is-active');
                         $target.classList.toggle('is-active');
-
+                        
                     });
                 });
             }
-
+            
             (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
                 var $notification = $delete.parentNode;
-
+                
                 $delete.addEventListener('click', () => {
                     $notification.parentNode.removeChild($notification);
                 });
             });
-
+            
         });
-    </script>
+        </script>
+{% block cssjs %}
+{% endblock cssjs %}
 </body>
 
 </html>

@@ -6,18 +6,9 @@ from django import forms
 
 
 class UserRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True, widget=forms.TextInput(
-        attrs={'class': 'input'}))
-    first_name = forms.CharField(required=True, max_length=30, widget=forms.TextInput(
-        attrs={'class': 'input'}))
-    last_name = forms.CharField(required=True, max_length=30, widget=forms.TextInput(
-        attrs={'class': 'input'}))
-    username = forms.CharField(required=True, max_length=30, widget=forms.TextInput(
-        attrs={'class': 'input'}))
-    password1 = forms.CharField(required=True, label='Password', widget=forms.TextInput(
-        attrs={'class': 'input', 'type': 'password'}))
-    password2 = forms.CharField(required=True, label='Confirm Password', widget=forms.TextInput(
-        attrs={'class': 'input', 'type': 'password'}))
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(required=True, max_length=30)
+    last_name = forms.CharField(required=True, max_length=30)
 
     class Meta:
         model = User  # Interacts with User model
