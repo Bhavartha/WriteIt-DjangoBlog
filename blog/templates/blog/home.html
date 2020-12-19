@@ -1,0 +1,71 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div id="posts" class="px-3">
+    {% for post in posts %}
+
+    <div class="card">
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">{{post.title}}</p>
+                    <p class="subtitle is-6">
+                        <a href="#">@{{post.author}}</a>
+                    </p>
+                </div>
+            </div>
+            <div class="content">
+                {{post.content}}
+            </div>
+            <footer class="card-footer">
+                <a href="#" class="card-footer-item">Save</a>
+                <a href="#" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item">Delete</a>
+            </footer>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+{% block css %}
+<style>
+
+    .card {
+        max-width: 800px;
+        border-radius: 15px;
+        margin: 30px auto;
+    }
+
+    footer {
+        margin-bottom: -15px;
+    }
+
+    html {
+        background: #5f2c82;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #49a09d, #5f2c82);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+    }
+
+    html::-webkit-scrollbar {
+        /* WebKit */
+        width: 0;
+        height: 0;
+    }
+</style>
+{% endblock css %}
