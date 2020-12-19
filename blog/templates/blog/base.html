@@ -72,7 +72,7 @@
             <div class="navbar-end pr-6">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
+                        <a class="button is-primary" href="{% url 'register' %}">
                             <strong>Sign up</strong>
                         </a>
                         <a class="button is-warning">
@@ -84,6 +84,18 @@
         </div>
     </nav>
     <!-- Navbar end -->
+
+    <!-- Flash messages -->
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="notification is-{{msg.tags}} is-light">
+        <button class="delete"></button>
+        {{msg}}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Content -->
     {% block content %}
     {% endblock content %}
 
@@ -112,6 +124,14 @@
                     });
                 });
             }
+
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                var $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
 
         });
     </script>
