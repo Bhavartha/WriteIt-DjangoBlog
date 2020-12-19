@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="my-6">
+    <h1 class="is-size-2 has-text-centered has-text-weight-semibold">Your have been Logged Out!</h1>
+    <div class="quicklinks">
+        <p class="menu-label">
+            Quick Links
+        </p>
+        <p>
+            <a href="{% url 'blog-home' %}">Homepage</a>
+        </p>
+        <p>
+            <a href="{% url 'register' %}">Sign Up</a>
+        </p>
+        <p>
+            <a href="{% url 'login' %}">Log In</a>
+        </p>
+    </div>
+</div>
+{% endblock content %}
+
+{% block cssjs %}
+<style>
+    .quicklinks {
+        margin: 10px auto;
+        padding: 15px;
+        max-width: 600px;
+        text-align: center;
+    }
+</style>
+{% endblock cssjs %}
