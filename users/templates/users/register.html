@@ -2,13 +2,31 @@
 
 {% block content %}
 
-<form action="" method="post">
-    <fieldset>
-        <legend>Register</legend>
-        {% csrf_token %}
-        {{form}}
-    </fieldset>
-    <button type="submit">Sign Up</button>
-</form>
+<form method="post">
+
+    <h1 class="is-size-2 has-text-centered has-text-weight-semibold">Register</h1>
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="my-5">
+            {{ field.label_tag }}
+            {{ field }}
+            {% for error in field.errors %}
+                <p class="help is-danger"> {{ error|escape }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
     
+    <input class="button is-link mt-4" type="submit" value="Submit">
+</form>
+
 {% endblock content %}
+
+{% block css %}
+<style>
+    form {
+        padding: 10px;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+</style>
+{% endblock css %}
