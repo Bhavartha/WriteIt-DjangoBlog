@@ -12,10 +12,9 @@ def register(request):
         if form.is_valid():
             # if form is valid then add user to db
             form.save()
-            # Show success flash message after redirecting to blog home
-            username = form.cleaned_data.get('username')
-            messages.success(request,f'Account for {username} created!')
-            return redirect('blog-home')
+            # Redirect to login page and show success msg
+            messages.success(request,f'Account created! You can now login')
+            return redirect('login')
     # Get method ie webpage requested
     else:
         # create new form
