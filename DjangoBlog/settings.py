@@ -27,7 +27,6 @@ SECRET_KEY = config('SECRET_KEY')
 # Captcha Keys and settings
 RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
-RECAPTCHA_REQUIRED_SCORE = config('RECAPTCHA_REQUIRED_SCORE')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
